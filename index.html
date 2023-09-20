@@ -19,7 +19,7 @@
       }
       #container {
         width: 100%;
-        background-color: aqua;
+        background-color: #eee;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
@@ -28,22 +28,28 @@
       }
       article {
         width: 20%;
-        background-color: tomato;
+        background-color: white;
+        border-radius: 20px;
         padding: 1rem;
-        margin: 1rem;
+        margin: 2rem;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
       }
       .pic {
-        border: 1px solid black;
         width: 100%;
-        height: 15rem;
+        height: 16rem;
         margin: 0 auto;
         margin-bottom: 30px;
         overflow: hidden;
+        border-radius: 20px;
+        position: relative;
       }
       .pic img {
         width: 100%;
-        height: 15rem;
+        height: 16rem;
         object-fit: cover;
+        border-radius: 20px;
+        /* filter: grayscale(1); */
+        border: 5px solid #d4d4d4;
       }
 
       .text {
@@ -72,6 +78,34 @@
         opacity: 0.5;
         transition: transform 0.5s ease-in-out;
       }
+      .playing {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 7px solid rgba(255, 255, 255, 0.5);
+        border-bottom-color: #ff3d00;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      @keyframes rotate {
+        0% {
+          transform: translate(-50%, -50%) rotate(0);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+      .active {
+        animation: rotate 1s linear infinite;
+      }
+      .hidden {
+        display: none;
+      }
+      .paused {
+        animation-play-state: paused;
+      }
     </style>
   </head>
   <body>
@@ -79,12 +113,13 @@
       <article>
         <div class="pic">
           <img src="img/1.jpg" />
+          <div class="playing"></div>
         </div>
         <div class="text">
           <h2>제목 - 1</h2>
           <p>노래 설명 - 1</p>
           <ul>
-            <li class="pause"><i class="fa-solid fa-pause"></i></li>
+            <li class="stop"><i class="fa-solid fa-stop"></i></li>
             <li class="play"><i class="fa-solid fa-play"></i></li>
             <li class="load"><i class="fa-solid fa-repeat"></i></li>
           </ul>
@@ -94,12 +129,13 @@
       <article>
         <div class="pic">
           <img src="img/2.jpg" />
+          <div class="playing"></div>
         </div>
         <div class="text">
           <h2>제목 - 2</h2>
           <p>노래 설명 - 2</p>
           <ul>
-            <li class="pause"><i class="fa-solid fa-pause"></i></li>
+            <li class="stop"><i class="fa-solid fa-stop"></i></li>
             <li class="play"><i class="fa-solid fa-play"></i></li>
             <li class="load"><i class="fa-solid fa-repeat"></i></li>
           </ul>
@@ -109,12 +145,13 @@
       <article>
         <div class="pic">
           <img src="img/3.jpg" />
+          <div class="playing"></div>
         </div>
         <div class="text">
           <h2>제목 - 3</h2>
           <p>노래 설명 - 3</p>
           <ul>
-            <li class="pause"><i class="fa-solid fa-pause"></i></li>
+            <li class="stop"><i class="fa-solid fa-stop"></i></li>
             <li class="play"><i class="fa-solid fa-play"></i></li>
             <li class="load"><i class="fa-solid fa-repeat"></i></li>
           </ul>
@@ -124,12 +161,13 @@
       <article>
         <div class="pic">
           <img src="img/4.jpg" />
+          <div class="playing"></div>
         </div>
         <div class="text">
           <h2>제목 - 4</h2>
           <p>노래 설명 - 4</p>
           <ul>
-            <li class="pause"><i class="fa-solid fa-pause"></i></li>
+            <li class="stop"><i class="fa-solid fa-stop"></i></li>
             <li class="play"><i class="fa-solid fa-play"></i></li>
             <li class="load"><i class="fa-solid fa-repeat"></i></li>
           </ul>
@@ -139,12 +177,13 @@
       <article>
         <div class="pic">
           <img src="img/5.jpg" />
+          <div class="playing"></div>
         </div>
         <div class="text">
           <h2>제목 - 5</h2>
           <p>노래 설명 - 5</p>
           <ul>
-            <li class="pause"><i class="fa-solid fa-pause"></i></li>
+            <li class="stop"><i class="fa-solid fa-stop"></i></li>
             <li class="play"><i class="fa-solid fa-play"></i></li>
             <li class="load"><i class="fa-solid fa-repeat"></i></li>
           </ul>
@@ -154,12 +193,13 @@
       <article>
         <div class="pic">
           <img src="img/6.jpg" />
+          <div class="playing"></div>
         </div>
         <div class="text">
           <h2>제목 - 6</h2>
           <p>노래 설명 - 6</p>
           <ul>
-            <li class="pause"><i class="fa-solid fa-pause"></i></li>
+            <li class="stop"><i class="fa-solid fa-stop"></i></li>
             <li class="play"><i class="fa-solid fa-play"></i></li>
             <li class="load"><i class="fa-solid fa-repeat"></i></li>
           </ul>
@@ -169,12 +209,13 @@
       <article>
         <div class="pic">
           <img src="img/7.jpg" />
+          <div class="playing"></div>
         </div>
         <div class="text">
           <h2>제목 - 7</h2>
           <p>노래 설명 - 7</p>
           <ul>
-            <li class="pause"><i class="fa-solid fa-pause"></i></li>
+            <li class="stop"><i class="fa-solid fa-stop"></i></li>
             <li class="play"><i class="fa-solid fa-play"></i></li>
             <li class="load"><i class="fa-solid fa-repeat"></i></li>
           </ul>
@@ -184,12 +225,13 @@
       <article>
         <div class="pic">
           <img src="img/8.jpg" />
+          <div class="playing"></div>
         </div>
         <div class="text">
           <h2>제목 - 8</h2>
           <p>노래 설명 - 8</p>
           <ul>
-            <li class="pause"><i class="fa-solid fa-pause"></i></li>
+            <li class="stop"><i class="fa-solid fa-stop"></i></li>
             <li class="play"><i class="fa-solid fa-play"></i></li>
             <li class="load"><i class="fa-solid fa-repeat"></i></li>
           </ul>
@@ -202,24 +244,70 @@
       // play pause load 클릭시 이벤트 발생
       // 클릭하면 내 아티클의 음악이 선택
 
-      const pauseBtns = document.querySelectorAll(".pause i");
+      const stopBtns = document.querySelectorAll(".stop i");
       const playBtns = document.querySelectorAll(".play i");
+      const playingIcons = document.getElementsByClassName("playing");
+      const imges = document.querySelectorAll(".pic img");
+      const audioes = document.querySelectorAll(".text audio");
 
       const handlePlay = (event) => {
-        event.currentTarget.closest("article").querySelector("audio").play();
+        const article = event.currentTarget.closest("article");
+        const audio = article.querySelector("audio");
+        const playing = article.querySelector(".playing");
+        const img = article.querySelector("img");
+
+        if (audio.paused) {
+          reset();
+          audio.play();
+          playing.classList.remove("hidden");
+          playing.classList.remove("paused");
+          playing.classList.add("active");
+          img.style.filter = "grayscale(0)";
+          article.querySelector(".play i").className = "fa-solid fa-pause";
+        } else {
+          audio.pause();
+          playing.classList.add("paused");
+          article.querySelector(".play i").className = "fa-solid fa-play";
+        }
       };
 
-      const handlePause = (event) => {
-        event.currentTarget.closest("article").querySelector("audio").pause();
+      const handleStop = (event) => {
+        const article = event.currentTarget.closest("article");
+        const audio = article.querySelector("audio");
+        const playing = article.querySelector(".playing");
+        const img = article.querySelector("img");
+
+        audio.pause();
+        article.querySelector(".play i").className = "fa-solid fa-play";
+        playing.classList.add("hidden");
+        playing.classList.remove("active");
+        img.style.filter = "grayscale(1)";
+      };
+
+      const reset = () => {
+        for (let playingIcon of playingIcons) {
+          playingIcon.classList.add("hidden");
+        }
+        for (let img of imges) {
+          img.style.filter = "grayscale(1)";
+        }
+        for (let audio of audioes) {
+          audio.pause();
+        }
+        for (let playBtn of playBtns) {
+          playBtn.className = "fa-solid fa-play";
+        }
       };
 
       for (let playBtn of playBtns) {
         playBtn.addEventListener("click", handlePlay);
       }
 
-      for (let pauseBtn of pauseBtns) {
-        pauseBtn.addEventListener("click", handlePause);
+      for (let stopBtn of stopBtns) {
+        stopBtn.addEventListener("click", handleStop);
       }
+
+      reset();
     </script>
   </body>
 </html>
